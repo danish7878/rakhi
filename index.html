@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Rakshabandhan Bahan 🌳</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Pacifico&family=Caveat:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    /* Base styles */
+    body {
+      font-family: 'Comfortaa', cursive;
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0a2342 0%, #1e40af 80%, #3b82f6 100%);
+      overflow-x: hidden;
+      color: #cfd9e6;
+      position: relative;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      perspective: 1800px;
+    }
+    /* Layered glassy ambient background overlays */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at 25% 18%, rgba(255 255 255 / 0.22) 0%, transparent 45%),
+                  radial-gradient(circle at 75% 60%, rgba(255 255 255 / 0.16) 0%, transparent 60%);
+      filter: blur(140px);
+      pointer-events: none;
+      z-index: 0;
+      mix-blend-mode: screen;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255 255 255 / 0.07) 6%, rgba(255 255 255 / 0.02) 94%);
+      pointer-events: none;
+      z-index: 0;
+      backdrop-filter: blur(62px);
+      -webkit-backdrop-filter: blur(62px);
+    }
+    .container {
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 10;
+    }
+    h1.title {
+      font-family: 'Pacifico', cursive;
+      font-weight: 700;
+      font-size: 4.3rem;
+      background: linear-gradient(90deg, #a5c9ff 0%, #dceeff 90%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      text-shadow: 0 3px 20px rgba(165, 201, 255, 0.46);
+      margin-bottom: 0.7rem;
+      user-select: none;
+      text-align: center;
+    }
+    h2.subheading {
+      font-family: 'Caveat', cursive;
+      font-weight: 700;
+      font-size: 1.75rem;
+      color: #a1c9ff;
+      text-align: center;
+      user-select: none;
+      margin-bottom: 2.6rem;
+      text-shadow: 0 0 12px #77a9e2aa;
+      letter-spacing: 0.04em;
+    }
+    .glass-card {
+      background: rgba(255 255 255 / 0.18);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      border-radius: 2.5rem;
+      border: 1.7px solid rgba(255, 255, 255, 0.32);
+      box-shadow:
+        0 14px 38px rgba(77, 138, 255, 0.38),
+        inset 0 0 0.35rem 0.12rem rgba(255, 255, 255, 0.15);
+      color: #dde7ff;
+      padding: 2.7rem 3.3rem;
+      transition: transform 0.62s cubic-bezier(0.42, 0, 0.22, 1);
+      max-width: 360px;
+      width: 85vw;
+      user-select:none;
+    }
+    .glass-card:hover {
+      transform: translateY(-12px) scale(1.07);
+      box-shadow:
+        0 19px 46px rgba(110, 175, 255, 0.6),
+        inset 0 0 0.44rem 0.13rem rgba(255, 255, 255, 0.28);
+    }
+    #tree-container {
+      width: 100%;
+      max-width: 950px;
+      margin: 0 auto;
+      position: relative;
+      height: 85vh;
+      user-select: none;
+      overflow: visible;
+      z-index: 8;
+    }
+    svg#tree-svg {
+      width: 100%;
+      height: 100%;
+    }
+    .tree-path {
+      fill: none;
+      stroke: #7ea4ff;
+      stroke-width: 12;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 6400;
+      stroke-dashoffset: 6400;
+      animation: drawTree 9s ease forwards;
+      filter: drop-shadow(0 0 18px #5a8efa);
+    }
+    @keyframes drawTree {
+      to { stroke-dashoffset: 0; }
+    }
+    .media-bubble {
+      position: absolute;
+      border-radius: 2.1rem;
+      background: rgba(255 255 255 / 0.22);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 14px 36px rgba(63, 120, 255, 0.48);
+      border: 3px solid rgba(255, 255, 255, 0.52);
+      overflow: hidden;
+      transition:
+        transform 1.1s cubic-bezier(0.68, -0.4, 0.3, 1.6),
+        box-shadow 1.1s ease,
+        opacity 1s ease;
+      cursor: default;
+      opacity: 0;
+      transform: scale(0.58) translateY(50px);
+      filter: drop-shadow(0 5px 15px #688fffaa);
+      user-select: none;
+    }
+    .media-bubble.inview {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+    .media-bubble img,
+    .media-bubble video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 2.1rem;
+      pointer-events: none;
+      user-select: none;
+    }
+    .media-bubble:hover {
+      box-shadow:
+        0 22px 62px rgba(80, 120, 255, 0.86);
+      transform: scale(1.15);
+      z-index: 22;
+    }
+    .media-bubble video {
+      pointer-events: auto;
+      object-position: center center;
+      filter: drop-shadow(0 0 22px #7294ffcc);
+    }
+    .border-sticker {
+      position: fixed;
+      pointer-events: none;
+      user-select: none;
+      font-size: 2.6rem;
+      filter: drop-shadow(0 5px 18px #7a90ffab);
+      opacity: 0.9;
+      z-index: 48;
+      transition: transform 7.5s ease-in-out;
+      color: #d6dbff;
+      text-shadow: 0 0 10px #9fbaffcc;
+    }
+    .corner-top-left { top: 1.9rem; left: 2.3rem; }
+    .corner-top-right { top: 1.9rem; right: 2.3rem; }
+    .corner-bottom-left { bottom: 1.9rem; left: 2.3rem; }
+    .corner-bottom-right { bottom: 1.9rem; right: 2.3rem; }
+    .scroll-fade {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 1.5s ease, transform 1.5s ease;
+      will-change: opacity, transform;
+    }
+    .scroll-fade.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    button.glassy-btn {
+      font-family: 'Pacifico', cursive;
+      background: linear-gradient(135deg, #2c62ffdd, #78aaffdd);
+      color: #d3deff;
+      padding: 1.3rem 2.8rem;
+      border-radius: 3rem;
+      box-shadow:
+        0 8px 34px #3e74ffcc,
+        inset 0 0 30px #90b6ffcc;
+      border: 2px solid rgba(132, 172, 255, 0.64);
+      cursor: pointer;
+      transition: all 0.48s ease;
+      user-select: none;
+      font-size: 1.45rem;
+      letter-spacing: 0.05em;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      text-shadow: 0 0 10px #bae0ffcc;
+    }
+    button.glassy-btn:hover {
+      background: linear-gradient(135deg, #4c77ff, #a9c7ff);
+      color: #dbe8ff;
+      box-shadow:
+        0 13px 44px #67a4ffca,
+        inset 0 0 42px #d0e1fffe;
+      transform: scale(1.14);
+    }
+    #clock, #calendar {
+      max-width: 360px;
+      width: 75vw;
+      text-align: center;
+      user-select: none;
+      font-weight: 700;
+    }
+    #clock .time {
+      font-family: 'Orbitron', monospace;
+      font-size: 3.8rem;
+      color: #bad4ff;
+      text-shadow: 0 0 16px #88afff88;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.35rem;
+      user-select:none;
+    }
+    #clock .label {
+      font-family: 'Caveat', cursive;
+      font-size: 1.5rem;
+      color: #aed9ff;
+      margin-bottom: 0;
+      user-select:none;
+      filter: drop-shadow(0 0 12px #8fbbff7a);
+    }
+    #calendar .date {
+      font-family: 'Comfortaa', cursive;
+      font-size: 1.8rem;
+      color: #a5bdff;
+      margin-bottom: 0.25rem;
+      user-select:none;
+      filter: drop-shadow(0 0 8px #bccaffcc);
+    }
+    #calendar .holiday {
+      font-family: 'Caveat', cursive;
+      font-size: 1.3rem;
+      color: #8fa4f9;
+      margin-top: 0;
+      user-select:none;
+      text-shadow: 0 0 9px #85a2f9b9;
+    }
+    #modalBG {
+      background: rgba(12,30,67,0.85);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      position: fixed;
+      inset: 0;
+      z-index: 130;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.39s ease, visibility 0.39s ease;
+      user-select:none;
+    }
+    #modalBG.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    #modalContent {
+      max-width: 480px;
+      background: rgba(28, 54, 115, 0.88);
+      border-radius: 3rem;
+      padding: 3.5rem 4rem;
+      box-shadow: 0 10px 40px rgba(69, 107, 224, 0.83);
+      position: relative;
+      user-select: none;
+      font-family: 'Satisfy', cursive;
+      color: #c7d8ff;
+      text-align: center;
+      backdrop-filter: blur(32px);
+      -webkit-backdrop-filter: blur(32px);
+      border: 2.5px solid rgba(168, 203, 255, 0.52);
+      text-shadow: 0 0 32px #9db9fff6;
+    }
+    #closeModalBtn {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      font-size: 3.6rem;
+      color: #9fb8ff;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      user-select:none;
+    }
+    #closeModalBtn:hover {
+      color: #517aff;
+    }
+    #modalContent p {
+      font-size: 1.7rem;
+      line-height: 1.58;
+      margin-top: 1.6rem;
+      user-select:none;
+      letter-spacing: 0.02em;
+    }
+    footer {
+      font-family: 'Pacifico', cursive;
+      color: #92afff;
+      text-align: center;
+      padding: 3.5rem 0 5rem;
+      user-select:none;
+      text-shadow: 0 0 12px #b0caffcc;
+      font-size: 1.45rem;
+    }
+    @media (max-width: 768px){
+      h1.title {
+        font-size: 3.2rem;
+      }
+      #tree-container {
+        height: 60vh;
+      }
+      #clock, #calendar {
+        width: 94vw;
+      }
+      .glass-card {
+        padding: 1.8rem 2.8rem;
+      }
+      button.glassy-btn {
+        font-size: 1.3rem;
+        padding: 1.1rem 2.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Festive Floating Corner Stickers -->
+  <div class="border-sticker corner-top-left" aria-hidden="true">🎀</div>
+  <div class="border-sticker corner-top-right" aria-hidden="true">🌸</div>
+  <div class="border-sticker corner-bottom-left" aria-hidden="true">✨</div>
+  <div class="border-sticker corner-bottom-right" aria-hidden="true">🧁</div>
+
+  <div class="container">
+    <h1 class="title" aria-label="Happy Raksha Bandhan, Didi! Gift Tree growing">
+      Happy Raksha Bandhan, Kulsum Aapi! 🌳
+    </h1>
+    <h2 class="subheading">Watch our tree bloom with love and memories.</h2>
+
+    <!-- Tree container: big intricate SVG + positioned media bubbles -->
+    <div id="tree-container" aria-label="Growing tree with photos and videos on branches">
+      <svg id="tree-svg" viewBox="0 0 460 640" role="img" aria-hidden="true" focusable="false" >
+        <path class="tree-path"
+          d="
+          M230 620
+          Q225 570 230 480
+          Q165 460 165 410
+          Q210 390 230 420
+          Q280 300 330 370
+          Q300 335 280 375
+          Q320 260 145 220
+          Q210 270 230 370
+          Q245 180 355 220
+          Q250 165 235 250
+          Q220 95 180 250
+          Q210 165 160 160
+          Q260 140 310 60
+          Q210 125 205 180
+          Q215 150 165 140
+          "
+          />
+      </svg>
+      <div id="tree-media" aria-live="polite" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;"></div>
+    </div>
+
+    <!-- Clock, Calendar, Message -->
+    <div class="mt-28 grid grid-cols-1 md:grid-cols-3 gap-12 justify-items-center scroll-fade" id="widgets-section" aria-label="Clock, Calendar, Message Box">
+      <div id="clock" class="glass-card" role="region" aria-live="polite" aria-label="Current time clock widget">
+        <div class="time" id="timeDisplay">--:--:--</div>
+        <div class="label">It's Rakhi Time!</div>
+      </div>
+      
+      <div class="flex items-center justify-center">
+        <button class="glassy-btn" id="openModalBtn" aria-haspopup="dialog" aria-controls="modalContent">
+          Open your Cute Rakhi Message 💌
+        </button>
+      </div>
+
+      <div id="calendar" class="glass-card" role="region" aria-live="polite" aria-label="Current date calendar widget">
+        <div class="date" id="dateDisplay">Loading date...</div>
+        <div class="holiday">Raksha Bandhan</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Message Modal -->
+  <div id="modalBG" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1" >
+    <div id="modalContent" tabindex="0">
+      <button id="closeModalBtn" aria-label="Close message box">&times;</button>
+      <h2 id="modalTitle" style="font-family: 'Caveat', cursive; font-weight: 700; font-size: 2rem; margin-bottom: 0.6rem; color:#a9d3ff;">
+        To my dearest sister Kulsum 💖
+      </h2>
+      <p>
+        You are the shining star that lights up our Brother's life!<br />
+        This Raksha Bandhan, We promise always to nurture our bond,<br />
+        like this tree that grows stronger with every memory.<br />
+        Much love and hugs forever and beyond!<br />
+        <span style="font-size: 2rem;">🥰🌸🎁✨</span>
+      </p>
+    </div>
+  </div>
+
+  <footer>With love, your awesome Brother's Sakib, Danish, Abid , all cousins 🌸</footer>
+
+  <script>
+    // Animate corner stickers with subtle floating effect
+    const stickers = document.querySelectorAll('.border-sticker');
+    stickers.forEach(sticker => {
+      setInterval(() => {
+        const dx = (Math.random() - 0.5) * 6;
+        const dy = (Math.random() - 0.5) * 5;
+        sticker.style.transform = `translate(${dx}px, ${dy}px) scale(1.12)`;
+        setTimeout(() => {
+          sticker.style.transform = 'translate(0,0) scale(1)';
+        }, 3500);
+      }, 7800 + Math.random()*2600);
+    });
+
+    // Media items with accurate placement on bigger tree branches + smooth fade/scale in
+    const treeMedia = [
+      {src: "2.jpg", type: "image", x: 230, y: 515, w: 68, h: 68, alt: "Memory 1"},
+      {src: "3.jpg", type: "image", x: 140, y: 445, w: 62, h: 62, alt: "Memory 2"},
+      {src: "5.jpg", type: "image", x: 280, y: 460, w: 58, h: 72, alt: "Memory 3"},
+      {src: "6.jpg", type: "image", x: 110, y: 280, w: 72, h: 72, alt: "Memory 4"},
+      {src: "4.mp4", type: "video", x: 330, y: 210, w: 84, h: 58, alt: "Rakhi Video Clip"},
+      {src: "7.jpg", type: "image", x: 290, y: 410, w: 58, h: 62, alt: "Memory 5"},
+      {src: "8.jpg", type: "image", x: 210, y: 230, w: 62, h: 58, alt: "Memory 6"},
+    ];
+    const mediaContainer = document.getElementById('tree-media');
+    function placeMediaItems() {
+      treeMedia.forEach((media, i) => {
+        const elem = document.createElement(media.type === "image" ? "img" : "video");
+        elem.src = media.src;
+        elem.alt = media.alt || "Rakhi media item";
+        if(media.type === "video") {
+          elem.autoplay = true;
+          elem.loop = true;
+          elem.muted = true;
+          elem.playsInline = true;
+          elem.setAttribute("tabindex", "-1");
+        }
+        elem.className = "media-bubble";
+        elem.style.top = (media.y / 640)*100 + "%";
+        elem.style.left = (media.x / 460)*100 + "%";
+        elem.style.width = media.w + "px";
+        elem.style.height = media.h + "px";
+        mediaContainer.appendChild(elem);
+        setTimeout(() => {
+          elem.classList.add("inview");
+        }, 3700 + i * 920);
+      });
+    }
+    window.addEventListener("DOMContentLoaded", placeMediaItems);
+
+    // Clock: update every second
+    const timeDisplay = document.getElementById('timeDisplay');
+    function updateTime() {
+      const now = new Date();
+      const h = now.getHours().toString().padStart(2, "0");
+      const m = now.getMinutes().toString().padStart(2, "0");
+      const s = now.getSeconds().toString().padStart(2, "0");
+      timeDisplay.textContent = `${h}:${m}:${s}`;
+    }
+    setInterval(updateTime, 1000);
+    updateTime();
+
+    // Calendar: show full date
+    const dateDisplay = document.getElementById('dateDisplay');
+    function updateDate() {
+      const now = new Date();
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const formatted = now.toLocaleDateString('en-IN', options);
+      dateDisplay.textContent = formatted;
+    }
+    updateDate();
+
+    // Modal open/close logic with focus trap
+    const modalBG = document.getElementById('modalBG');
+    const openModalBtn = document.getElementById('openModalBtn');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    openModalBtn.addEventListener('click', () => {
+      modalBG.classList.add('active');
+      modalBG.focus();
+    });
+    closeModalBtn.addEventListener('click', () => modalBG.classList.remove('active'));
+    modalBG.addEventListener('click', (e) => {
+      if (e.target === modalBG) modalBG.classList.remove('active');
+    });
+    window.addEventListener('keydown', (e) => {
+      if (e.key === "Escape" && modalBG.classList.contains('active')) {
+        modalBG.classList.remove('active');
+      }
+    });
+
+    // Scroll fade for widgets
+    const widgetsSection = document.getElementById('widgets-section');
+    function handleScrollFade() {
+      const offset = window.innerHeight * 0.75;
+      const top = widgetsSection.getBoundingClientRect().top;
+      if (top < offset) {
+        widgetsSection.classList.add('visible');
+      } else {
+        widgetsSection.classList.remove('visible');
+      }
+    }
+    window.addEventListener('scroll', handleScrollFade);
+    document.addEventListener('DOMContentLoaded', handleScrollFade);
+  </script>
+</body>
+</html>
